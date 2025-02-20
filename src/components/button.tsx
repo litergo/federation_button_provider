@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 
 export default function Button() {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(JSON.parse(window.localStorage.getItem('count') || '0'));
+
+    useEffect(() => {
+        window.localStorage.setItem('count', JSON.stringify(count));
+    }, [count]);
 
     function handleClick() {
         setCount(count + 1);

@@ -3,6 +3,9 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 
 export default defineConfig({
+  output: {
+    assetPrefix: 'auto',
+  },
   plugins: [
     pluginReact(),
     pluginModuleFederation({
